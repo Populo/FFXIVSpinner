@@ -17,6 +17,7 @@ namespace FFXIVSpinner
 
         const int VK_A = 0x41;
         const int VK_D = 0x44;
+        const int VK_Click = 0x01;
 
         private Process _process { get; set; }
         private bool _runningLeft { get; set; }
@@ -60,10 +61,16 @@ namespace FFXIVSpinner
         }
 
         private void buttonLeft_Click(object sender, EventArgs e)
-        {         
+        {
+            if (_process.HasExited)
+            {
+                labelProcess_Click(sender, e);
+                return;
+            }
+
             _runningLeft = !_runningLeft;
 
-            if (!_runningLeft)
+            if (_runningLeft)
             {
                 PostMessage(_process.MainWindowHandle, WM_KEYDOWN, VK_A, 0);
                 buttonRight.Enabled = false;
@@ -77,9 +84,15 @@ namespace FFXIVSpinner
         }
         private void buttonRight_Click(object sender, EventArgs e)
         {
+            if (_process.HasExited)
+            {
+                labelProcess_Click(sender, e);
+                return;
+            }
+
             _runningRight = !_runningRight;
 
-            if (!_runningRight)
+            if (_runningRight)
             {
                 PostMessage(_process.MainWindowHandle, WM_KEYDOWN, VK_D, 0);
                 buttonLeft.Enabled = false;

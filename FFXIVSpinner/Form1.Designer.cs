@@ -33,12 +33,13 @@ namespace FFXIVSpinner
             this.buttonLeft = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonRight = new System.Windows.Forms.Button();
+            this.checkBoxClick = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // labelProcess
             // 
             this.labelProcess.AutoSize = true;
-            this.labelProcess.Location = new System.Drawing.Point(12, 69);
+            this.labelProcess.Location = new System.Drawing.Point(12, 85);
             this.labelProcess.Name = "labelProcess";
             this.labelProcess.Size = new System.Drawing.Size(101, 15);
             this.labelProcess.TabIndex = 0;
@@ -47,7 +48,7 @@ namespace FFXIVSpinner
             // 
             // buttonLeft
             // 
-            this.buttonLeft.Location = new System.Drawing.Point(12, 34);
+            this.buttonLeft.Location = new System.Drawing.Point(12, 50);
             this.buttonLeft.Name = "buttonLeft";
             this.buttonLeft.Size = new System.Drawing.Size(111, 23);
             this.buttonLeft.TabIndex = 3;
@@ -60,13 +61,13 @@ namespace FFXIVSpinner
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(12, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(211, 15);
+            this.label1.Size = new System.Drawing.Size(84, 15);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Holds the A button until you click stop";
+            this.label1.Text = "Spins you a lot";
             // 
             // buttonRight
             // 
-            this.buttonRight.Location = new System.Drawing.Point(123, 34);
+            this.buttonRight.Location = new System.Drawing.Point(123, 50);
             this.buttonRight.Name = "buttonRight";
             this.buttonRight.Size = new System.Drawing.Size(111, 23);
             this.buttonRight.TabIndex = 5;
@@ -74,11 +75,22 @@ namespace FFXIVSpinner
             this.buttonRight.UseVisualStyleBackColor = true;
             this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
             // 
+            // checkBoxClick
+            // 
+            this.checkBoxClick.AutoSize = true;
+            this.checkBoxClick.Location = new System.Drawing.Point(151, 8);
+            this.checkBoxClick.Name = "checkBoxClick";
+            this.checkBoxClick.Size = new System.Drawing.Size(75, 19);
+            this.checkBoxClick.TabIndex = 6;
+            this.checkBoxClick.Text = "Left Click";
+            this.checkBoxClick.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(246, 93);
+            this.ClientSize = new System.Drawing.Size(246, 109);
+            this.Controls.Add(this.checkBoxClick);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonLeft);
@@ -100,6 +112,7 @@ namespace FFXIVSpinner
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button buttonRight;
+        private System.Windows.Forms.CheckBox checkBoxClick;
     }
 }
 
