@@ -30,8 +30,9 @@ namespace FFXIVSpinner
         private void InitializeComponent()
         {
             this.labelProcess = new System.Windows.Forms.Label();
-            this.buttonStart = new System.Windows.Forms.Button();
+            this.buttonLeft = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonRight = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelProcess
@@ -44,15 +45,15 @@ namespace FFXIVSpinner
             this.labelProcess.Text = "Process: {Process}";
             this.labelProcess.Click += new System.EventHandler(this.labelProcess_Click);
             // 
-            // buttonStart
+            // buttonLeft
             // 
-            this.buttonStart.Location = new System.Drawing.Point(12, 34);
-            this.buttonStart.Name = "buttonStart";
-            this.buttonStart.Size = new System.Drawing.Size(222, 23);
-            this.buttonStart.TabIndex = 3;
-            this.buttonStart.Text = "Start";
-            this.buttonStart.UseVisualStyleBackColor = true;
-            this.buttonStart.Click += new System.EventHandler(this.buttonStart_Click);
+            this.buttonLeft.Location = new System.Drawing.Point(12, 34);
+            this.buttonLeft.Name = "buttonLeft";
+            this.buttonLeft.Size = new System.Drawing.Size(111, 23);
+            this.buttonLeft.TabIndex = 3;
+            this.buttonLeft.Text = "Left";
+            this.buttonLeft.UseVisualStyleBackColor = true;
+            this.buttonLeft.Click += new System.EventHandler(this.buttonLeft_Click);
             // 
             // label1
             // 
@@ -63,14 +64,28 @@ namespace FFXIVSpinner
             this.label1.TabIndex = 4;
             this.label1.Text = "Holds the A button until you click stop";
             // 
+            // buttonRight
+            // 
+            this.buttonRight.Location = new System.Drawing.Point(123, 34);
+            this.buttonRight.Name = "buttonRight";
+            this.buttonRight.Size = new System.Drawing.Size(111, 23);
+            this.buttonRight.TabIndex = 5;
+            this.buttonRight.Text = "Right";
+            this.buttonRight.UseVisualStyleBackColor = true;
+            this.buttonRight.Click += new System.EventHandler(this.buttonRight_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(246, 93);
+            this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.buttonStart);
+            this.Controls.Add(this.buttonLeft);
             this.Controls.Add(this.labelProcess);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "FFXIV Spinner";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -82,8 +97,9 @@ namespace FFXIVSpinner
         #endregion
 
         private System.Windows.Forms.Label labelProcess;
-        private System.Windows.Forms.Button buttonStart;
+        private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonRight;
     }
 }
 

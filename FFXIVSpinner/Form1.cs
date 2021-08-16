@@ -16,15 +16,19 @@ namespace FFXIVSpinner
         const UInt32 WM_KEYUP = 0x0101;
 
         const int VK_A = 0x41;
+        const int VK_D = 0x44;
 
         private Process _process { get; set; }
-        private bool _running { get; set; }
+        private bool _runningLeft { get; set; }
+        private bool _runningRight { get; set; }
 
         private Keys _key { get; set; }
 
         public Form1()
         {
-            _running = false;
+            _runningLeft = false;
+            _runningRight = false;
+
             InitializeComponent();
         }
 
@@ -34,11 +38,12 @@ namespace FFXIVSpinner
             {
                 _process = FindProcess();
 
-                labelProcess.Text = $"Process: {_process.ProcessName}({_process.Id})";
+                labelProcess.Text = $"Process: {_process.ProcessName} ({_process.Id})";
             } 
             catch
             {
                 MessageBox.Show("Cannot hook Final Fantasy XIV Process");
+                labelProcess.Text = "Cannot find process";
             }
         }
 
@@ -54,22 +59,37 @@ namespace FFXIVSpinner
             return proc;
         }
 
-        private void buttonStart_Click(object sender, EventArgs e)
-        {
-            _running = !_running;
+        private void buttonLeft_Click(object sender, EventArgs e)
+        {         
+            _runningLeft = !_runningLeft;
 
-            if (!_running)
+            if (!_runningLeft)
             {
-                buttonStart.Text = "Stop";
-
                 PostMessage(_process.MainWindowHandle, WM_KEYDOWN, VK_A, 0);
+                buttonRight.Enabled = false;
             } 
             else
             {
-                buttonStart.Text = "Start";
                 PostMessage(_process.MainWindowHandle, WM_KEYUP, VK_A, 0);
+                buttonRight.Enabled = true;
             }
             
+        }
+        private void buttonRight_Click(object sender, EventArgs e)
+        {
+            _runningRight = !_runningRight;
+
+            if (!_runningRight)
+            {
+                PostMessage(_process.MainWindowHandle, WM_KEYDOWN, VK_D, 0);
+                buttonLeft.Enabled = false;
+            }
+            else
+            {
+                PostMessage(_process.MainWindowHandle, WM_KEYUP, VK_D, 0);
+                buttonLeft.Enabled = true;
+            }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
